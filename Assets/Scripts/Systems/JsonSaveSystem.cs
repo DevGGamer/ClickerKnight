@@ -20,10 +20,11 @@ public class JsonSaveSystem : IInitializable, IDisposable
 
     public void Initialize()
     {
-        _pathDataStorage = Path.Combine(Application.persistentDataPath, "/data.json");
-        _pathUpgraderInfo = Path.Combine(Application.persistentDataPath, "/upgraderData.json");
+        _pathDataStorage = Path.Combine(Application.persistentDataPath, "data.json");
+        _pathUpgraderInfo = Path.Combine(Application.persistentDataPath, "upgraderData.json");
 
-        _statsData = LoadData<StatsData>(_pathDataStorage);
+        DataStatsStorage storage = LoadData<DataStatsStorage>(_pathDataStorage);
+        _statsData.StatsModel.SetDataValues(storage);
         _upgradeData = LoadData<UpgraderData>(_pathUpgraderInfo);
     }
 
@@ -50,7 +51,18 @@ public class JsonSaveSystem : IInitializable, IDisposable
 
     private void SaveStats()
     {
-        SaveData<StatsData>(_pathDataStorage, _statsData);
+        DataStatsStorage storage = new DataStatsStorage();
+        StatsModel model = _statsData.StatsModel;
+        storage.Coins = model.Coins;
+        storage.CoinsPerClick = model.CoinsPerClick;
+        storage.Defence = model.Defence;
+        storage.Damage = model.Damage;
+        storage.Health = model.Health;
+        storage.Experience = model.Experience;
+        storage.Level = model.Level;
+        storage.MaxExperinece = model.MaxExperinece;
+
+        SaveData<DataStatsStorage>(_pathDataStorage, storage);
     }
 
     private void SaveUpgraders()

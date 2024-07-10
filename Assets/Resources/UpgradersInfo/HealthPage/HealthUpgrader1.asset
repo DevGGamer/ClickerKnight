@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f044e7c112eab4fa191ce3a17c288d, type: 3}
   m_Name: HealthUpgrader1
   m_EditorClassIdentifier: 
-  _title: "\u041D\u0430\u043F\u0438\u0442\u044C\u0441\u044F \u0437\u0435\u043B\u044C\u044F
+  Title: "\u041D\u0430\u043F\u0438\u0442\u044C\u0441\u044F \u0437\u0435\u043B\u044C\u044F
     \u043B\u0435\u0447\u0435\u043D\u0438\u044F"
-  _currentPrice: 300
+  CurrentPrice: 500

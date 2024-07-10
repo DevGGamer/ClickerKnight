@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stats", menuName = "Create Stats Info"), Serializable]
+[CreateAssetMenu(fileName = "Stats", menuName = "Create Stats Info")]
 public class StatsModel : ScriptableObject
 {
     public int Coins => _coins;
@@ -21,6 +21,18 @@ public class StatsModel : ScriptableObject
     [SerializeField] private int _coinsPerClick = 1;
     [SerializeField] private int _experience = 0;
     [SerializeField] private int _level = 1;
+
+    public void SetDataValues(DataStatsStorage data)
+    {
+        _coins = data.Coins;
+        _coinsPerClick = data.CoinsPerClick;
+        _experience = data.Experience;
+        _level = data.Level;
+        _damage = data.Damage;
+        _defence = data.Defence;
+        _maxExperience = data.MaxExperinece;
+        _health = data.Health;
+    }
 
     public void AddCoins(int amount)
     {

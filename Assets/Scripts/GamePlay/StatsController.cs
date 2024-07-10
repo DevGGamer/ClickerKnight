@@ -25,6 +25,7 @@ public class StatsController : IInitializable
     {
         _view.UpdateCoinsText(_model.Coins);
         _view.UpdateExperienceBar(_model.Experience, _model.MaxExperinece);
+        _view.UpdateLevelText(_model.Level);
         _view.UpdateHealthText(_model.Health);
         _view?.UpdateDamageText(_model.Damage);
         _view.UpdateDefenceText(_model.Defence);

@@ -4,17 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Upgrader Config", menuName = "Upgrader/Create New Upgrader Info"), Serializable]
 public class UpgraderInfo : ScriptableObject
 {
-    public int CurrentPrice => _currentPrice;
-    public string Title => _title;
-
-    [SerializeField, TextArea] private string _title;
-    [SerializeField] private int _currentPrice;
+    [TextArea] public string Title;
+    public int CurrentPrice = 100;
 
     public void SetNewPrice(int price)
     {
         if (price < 0)
             return;
 
-        _currentPrice = price;
+        CurrentPrice = price;
     }
 }
